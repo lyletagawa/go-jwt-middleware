@@ -121,7 +121,7 @@ func (m *JWTMiddleware) Handler(h http.Handler) http.Handler {
 // FromAuthHeader is a "TokenExtractor" that takes a give request and extracts
 // the JWT token from the Authorization header.
 func FromAuthHeader(r *http.Request) (string, error) {
-	authHeader := r.Header.Get("Authorization")
+	authHeader := r.Header.Get("X-Token")
 	if authHeader == "" {
 		return "", nil // No error, just no token
 	}
